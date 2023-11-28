@@ -5,12 +5,20 @@ import {
   faCircleUser,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { toggleMenu } from "../utils/storeSlices/appSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu())
+  }
+
   return (
     <div className="grid grid-flow-col px-7 py-2 shadow-lg h-14">
       <div className="flex col-span-1">
-        <FontAwesomeIcon className="h-6 my-2" icon={faBars} />
+        <FontAwesomeIcon className="h-6 my-2 cursor-pointer" onClick={() => toggleMenuHandler()} icon={faBars} />
 
         <img
           className="h-6 my-2 mx-2"

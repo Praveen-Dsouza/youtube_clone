@@ -1,13 +1,17 @@
-import './App.css';
-import Body from './components/Body';
-import Navbar from './components/Navbar';
+import "./App.css";
+import Body from "./components/Body";
+import Navbar from "./components/Navbar";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 function App() {
   return (
-    <div>
-      <Navbar/>
-      <Body/>
-    </div>
+    <Provider store={store}>
+      <div>
+        <Navbar />
+        <Body />
+      </div>
+    </Provider>
   );
 }
 
