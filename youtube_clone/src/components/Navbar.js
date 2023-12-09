@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBars,
-  faCircleUser,
-  faSearch,
+  faCircleUser
 } from "@fortawesome/free-solid-svg-icons";
 import { toggleMenu } from "../utils/storeSlices/appSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +13,7 @@ import createVideo from "../utils/icons/createVideo.png";
 import clear from "../utils/icons/clear.png";
 import search from "../utils/icons/search.png";
 import mic from "../utils/icons/mic.jpg";
+import bars from "../utils/icons/bars.jpg";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -65,11 +64,12 @@ const Navbar = () => {
   return (
     <div className="w-screen fixed grid grid-flow-col z-20 px-7 py-2 h-14 bg-white">
       <div className="flex col-span-1">
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           className="h-5 my-2 cursor-pointer"
           onClick={() => toggleMenuHandler()}
           icon={faBars}
-        />
+        /> */}
+        <img className="h-7 mt-1 cursor-pointer" src={bars} onClick={() => toggleMenuHandler()} alt="clear" />
         <Link to="/">
           <img className="h-5 my-2 ml-6" src={YT_LOGO} alt="logo" />
         </Link>
@@ -130,7 +130,7 @@ const Navbar = () => {
           </div>
         </div>
         {showSuggestions && suggestions.length > 0 && (
-          <div className="absolute items-center bg-white mt-1 py-2 col-span-10 w-[32rem] shadow-lg rounded-xl border-gray-100">
+          <div className="absolute items-center mx-16 bg-white mt-1 py-2 col-span-10 w-[38rem] shadow-lg rounded-xl border-gray-100">
             <ul>
               {suggestions?.map((suggestion) => (
                 <li
