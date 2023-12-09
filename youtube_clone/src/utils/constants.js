@@ -7,3 +7,7 @@ export const YT_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/videos?p
 export const YT_LOGO = "https://vectorseek.com/wp-content/uploads/2021/01/YouTube-Logo-Vector.png"
 
 export const YT_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+
+export const YT_SEARCH_RESULTS_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" + API_KEY + "&q=";
+
+export const CHANNEL_DATA_API = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&key=" + API_KEY + "&id=";
