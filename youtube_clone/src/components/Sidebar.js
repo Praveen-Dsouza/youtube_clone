@@ -35,7 +35,7 @@ const ListItem = ({ icon, text, customClass, path }) => {
     <Link to={path ? `/results?search_query=${path}`: '/'} onClick={() => dispatch(closeMenu())}>
       <li className="flex py-1 my-2 cursor-pointer hover:bg-gray-100 rounded-lg">
         <img className={`h-5 w-5 ${customClass}`} src={icon} alt="icon" />
-        <p className="pl-7 text-sm mb-1 font-normal">{text}</p>
+        <p className={"pl-7 text-sm mb-1 font-normal" + (text === 'Home' && 'font-bold')}>{text}</p>
       </li>
     </Link>
   )
@@ -45,7 +45,7 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store?.app?.isMenuOpen);
   if (!isMenuOpen) return null;
   return (
-    <div className="px-8 py-10 fixed max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain top-[64px] z-10 bg-white ">
+    <div className="px-8 py-10 fixed max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain top-6 z-10 bg-white ">
       <ul className="shadow-sm">
         <ListItem icon={homeInv} text={'Home'} />
         <ListItem icon={shortsInv} text={'Shorts'} path={'shorts'} />
