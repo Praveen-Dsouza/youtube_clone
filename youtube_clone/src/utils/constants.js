@@ -11,3 +11,5 @@ export const YT_SEARCH_API = "http://suggestqueries.google.com/complete/search?c
 export const YT_SEARCH_RESULTS_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" + API_KEY + "&q=";
 
 export const CHANNEL_DATA_API = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&key=" + API_KEY + "&id=";
+
+export const VIDEO_DETAILS_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=" + API_KEY + "&id=";

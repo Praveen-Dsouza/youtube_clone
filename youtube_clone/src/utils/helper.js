@@ -38,3 +38,11 @@ export function makeRandomMessage(length) {
     return result;
 }
 
+export function ViewsConverter({ views }) {
+  const formattedViews = new Intl.NumberFormat("en-US", {
+    notation: "compact",
+    maximumFractionDigits: 1,
+  }).format(views);
+
+  return <div>{formattedViews} </div>;
+}
