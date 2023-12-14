@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { YT_VIDEOS_API } from "../../utils/constants";
+import React from "react";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import Shimmer from "../Shimmer";
+import { useSelector } from "react-redux";
+import useGetVideos from "../../hooks/useGetVideos";
 
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    getVideos();
-  }, []);
-
-  const getVideos = async () => {
-    const data = await fetch(YT_VIDEOS_API);
-    const json = await data.json();
-    // console.log(json.items);
-    setVideos(json.items);
-  };
+  useGetVideos();
+  
+  const videos = useSelector((store) => store.video.videos);
 
   if (!videos?.length) return <Shimmer />;
 

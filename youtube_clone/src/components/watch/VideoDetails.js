@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { VIDEO_DETAILS_API } from '../../utils/constants';
 import ChannelDetails from './ChannelDetails';
+import { setChannnelId } from '../../utils/storeSlices/videoSlice';
 
 const VideoDetails = ({ videoId }) => {
     const dispatch = useDispatch();
@@ -10,6 +11,13 @@ const VideoDetails = ({ videoId }) => {
     useEffect(() => {
         fetchVideoDetails();
     }, [videoId])
+
+    useEffect(() => {
+        if (videoDetails) {
+          const { channelId } = videoDetails.snippet || {};
+          dispatch(setChannnelId(channelId));
+        }
+      }, [videoDetails, dispatch]);
 
     const fetchVideoDetails = async () => {
         const data = await fetch(VIDEO_DETAILS_API + videoId);
