@@ -1,19 +1,17 @@
 import React from "react";
 import { ViewsConverter } from "../../utils/helper";
-import verified from "../../utils/icons/verified.png"
+import verified from "../../utils/icons/verified.png";
 import { useSelector } from "react-redux";
 import useChannelDetails from "../../hooks/useChannelDetails";
 
-const ChannelDetails = ({ channelId, channelTitle }) => {
-  useChannelDetails(channelId)
+const ChannelDetails = ({ channelTitle }) => {
+  useChannelDetails();
   const channelDetails = useSelector((store) => store.video.channelDetails);
 
   if (!channelDetails) return;
 
-  const channelLogoImg =
-    channelDetails?.items[0]?.snippet?.thumbnails?.default?.url;
-
-  const subscriberCount = channelDetails?.items[0]?.statistics?.subscriberCount;
+  const channelLogoImg = channelDetails?.snippet?.thumbnails?.default?.url;
+  const subscriberCount = channelDetails?.statistics?.subscriberCount;
 
   return (
     <div className="flex p-2 w-full">
@@ -30,7 +28,7 @@ const ChannelDetails = ({ channelId, channelTitle }) => {
         </div>
       </div>
       <div className="px-2 py-1">
-        <img className="h-4 w-4 " src={verified} alt="verified"/>
+        <img className="h-4 w-4 " src={verified} alt="verified" />
       </div>
       <button className="px-6 ml-4 rounded-3xl text-base bg-black txt text-white font-semibold leading-3">
         Subscribe
