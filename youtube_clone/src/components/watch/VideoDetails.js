@@ -2,13 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ChannelDetails from "./ChannelDetails";
 import useVideoDetails from "../../hooks/useVideoDetails";
+import useChannelDetails from "../../hooks/useChannelDetails";
 
 const VideoDetails = ({ videoId }) => {
   useVideoDetails(videoId);
+  useChannelDetails();
   const videoDetails = useSelector((store) => store.video?.details);
 
   const { title, channelTitle, description, publishedAt } =
     videoDetails?.snippet || {};
+
   const { likeCount, viewCount } = videoDetails?.statistics || {};
 
   if (videoDetails == null) return;

@@ -2,16 +2,15 @@ import React from "react";
 import { ViewsConverter } from "../../utils/helper";
 import verified from "../../utils/icons/verified.png";
 import { useSelector } from "react-redux";
-import useChannelDetails from "../../hooks/useChannelDetails";
 
 const ChannelDetails = ({ channelTitle }) => {
-  useChannelDetails();
   const channelDetails = useSelector((store) => store.video.channelDetails);
-
+  console.log('channel', channelDetails)
+  const { snippet, statistics } = channelDetails;
   if (!channelDetails) return;
 
-  const channelLogoImg = channelDetails?.snippet?.thumbnails?.default?.url;
-  const subscriberCount = channelDetails?.statistics?.subscriberCount;
+  const channelLogoImg = snippet?.thumbnails?.default?.url;
+  const subscriberCount = statistics?.subscriberCount;
 
   return (
     <div className="flex p-2 w-full">
