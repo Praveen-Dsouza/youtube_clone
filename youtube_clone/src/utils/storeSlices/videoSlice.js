@@ -5,6 +5,7 @@ const videoSlice = createSlice({
   initialState: {
     videos: [],
     details: [],
+    channelDetails: [],
     channelId: null,
   },
   reducers: {
@@ -13,6 +14,9 @@ const videoSlice = createSlice({
     },
     addVideoDetails: (state, action) => {
       state.details = action.payload
+    },
+    addChannelDetails: (state, action) => {
+      state.channelDetails = action.payload
     },
     setChannnelId: (state, action) => {
       state.channelId = action.payload;
@@ -23,5 +27,5 @@ const videoSlice = createSlice({
   },
 });
 
-export const { addVideos, addVideoDetails, setChannnelId, clearChannelId } = videoSlice.actions;
+export const { addVideos, addVideoDetails, addChannelDetails, setChannnelId, clearChannelId } = videoSlice.actions;
 export default videoSlice.reducer;

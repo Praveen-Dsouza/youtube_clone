@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { CHANNEL_DATA_API } from "../../utils/constants";
+import React from "react";
 import { ViewsConverter } from "../../utils/helper";
 import verified from "../../utils/icons/verified.png"
+import { useSelector } from "react-redux";
+import useChannelDetails from "../../hooks/useChannelDetails";
 
 const ChannelDetails = ({ channelId, channelTitle }) => {
-  const [channelDetails, setChannelDetails] = useState(null);
+  useChannelDetails(channelId)
+  const channelDetails = useSelector((store) => store.video.channelDetails);
 
-  useEffect(() => {
-    getChannelData();
-  }, []);
-
-  // Getting Channel Data with Channel Id
-  const getChannelData = async () => {
-    const data = await fetch(CHANNEL_DATA_API + channelId);
-
-    const json = await data.json();
-    setChannelDetails(json);
-  };
-
-  if (channelDetails == null) return;
+  if (!channelDetails) return;
 
   const channelLogoImg =
     channelDetails?.items[0]?.snippet?.thumbnails?.default?.url;
