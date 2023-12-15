@@ -3,11 +3,11 @@ import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import Shimmer from "../Shimmer";
 import { useSelector } from "react-redux";
-import useGetVideos from "../../hooks/useGetVideos";
+import useVideosList from "../../hooks/useVideosList";
 
 const VideoContainer = () => {
-  useGetVideos();
-  
+  useVideosList();
+
   const videos = useSelector((store) => store.video.videos);
 
   if (!videos?.length) return <Shimmer />;
