@@ -8,6 +8,7 @@ import dislikedInv from "../../utils/icons/dislikedInv.png";
 import share from "../../utils/icons/share.png";
 import more from "../../utils/icons/more.png";
 import { ViewsConverter } from "../../utils/helper";
+import VideoTimeStamp from "../searchResults/VideoTimeStamp"
 
 const VideoDetails = ({ videoId }) => {
   useVideoDetails(videoId);
@@ -46,6 +47,18 @@ const VideoDetails = ({ videoId }) => {
           <div className="bg-slate-100 rounded-full p-2 py-5">
             <img className="w-8 rounded-full px-1" src={more} alt="more"/>
           </div>
+        </div>
+      </div>
+      <div className="bg-slate-100 m-3 rounded-xl">
+        <div className="flex m-1 mt-3 text-base w-full">
+          <div className="flex font-semibold px-2">
+            <ViewsConverter views={viewCount} />
+            <p className="px-1">views</p>
+            <VideoTimeStamp utcTimestamp={publishedAt} />
+          </div>
+        </div>
+        <div className="m-1 mb-3">
+          <div className="text-sm line-clamp-2 px-2">{description}</div>
         </div>
       </div>
     </div>
