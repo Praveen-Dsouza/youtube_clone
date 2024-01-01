@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const ChannelDetails = ({ channelTitle }) => {
   const channelDetails = useSelector((store) => store.video.channelDetails);
-  console.log('channel', channelDetails)
   const { snippet, statistics } = channelDetails;
   
   if (!channelDetails) return;

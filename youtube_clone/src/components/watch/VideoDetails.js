@@ -3,6 +3,11 @@ import { useSelector } from "react-redux";
 import ChannelDetails from "./ChannelDetails";
 import useVideoDetails from "../../hooks/useVideoDetails";
 import useChannelDetails from "../../hooks/useChannelDetails";
+import likedInv from "../../utils/icons/likedInv.png";
+import dislikedInv from "../../utils/icons/dislikedInv.png";
+import share from "../../utils/icons/share.png";
+import more from "../../utils/icons/more.png";
+import { ViewsConverter } from "../../utils/helper";
 
 const VideoDetails = ({ videoId }) => {
   useVideoDetails(videoId);
@@ -23,6 +28,25 @@ const VideoDetails = ({ videoId }) => {
       </div>
       <div className="flex justify-between">
         <ChannelDetails channelTitle={channelTitle} />
+
+        <div className="flex items-center px-2">
+          <div className="flex items-center bg-slate-100 px-4 py-2 mx-2 rounded-3xl w-48 ">
+            
+            <img className="h-6 w-18 bg-gray-200 " src={likedInv} alt="like"/>
+            <div className="text-[14px] mx-2 font-bold mt-1">
+              <ViewsConverter views={likeCount} />
+            </div>
+            <div className="text-xl text-gray-300 mx-2">|</div>
+            <img className="h-6 w-18 bg-gray-100" src={dislikedInv} alt="dislike"/>
+          </div>
+          <div className="bg-slate-100 rounded-3xl px-4 py-3 mx-2 flex ">
+            <img className="h-5 w-18 bg-gray-100 px-1" src={share} alt="share"/>
+            <span className="text-sm font-semibold pr-2">Share</span>
+          </div>
+          <div className="bg-slate-100 rounded-full p-2 py-5">
+            <img className="w-8 rounded-full px-1" src={more} alt="more"/>
+          </div>
+        </div>
       </div>
     </div>
   );
