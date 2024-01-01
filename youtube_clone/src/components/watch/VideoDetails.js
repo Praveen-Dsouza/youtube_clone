@@ -14,7 +14,7 @@ const VideoDetails = ({ videoId }) => {
 
   const { likeCount, viewCount } = videoDetails?.statistics || {};
 
-  if (videoDetails == null) return;
+  if (videoDetails === null) return;
 
   return (
     <div className="flex flex-col w-full">

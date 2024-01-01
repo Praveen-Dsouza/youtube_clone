@@ -8,13 +8,13 @@ const useChannelDetails = () => {
   const channelId = useSelector((store) => store.video.channelId);
 
   useEffect(() => {
-    getChannelDetails();
-  }, []);
+    if (channelId)
+      getChannelDetails();
+  }, [channelId]);
 
   const getChannelDetails = async () => {
     const data = await fetch(CHANNEL_DATA_API + channelId);
     const json = await data.json();
-    console.log('items', json?.items[0])
     dispatch(addChannelDetails(json?.items[0]));
   };
 };

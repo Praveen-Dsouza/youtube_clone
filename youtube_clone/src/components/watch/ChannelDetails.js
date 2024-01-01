@@ -7,6 +7,7 @@ const ChannelDetails = ({ channelTitle }) => {
   const channelDetails = useSelector((store) => store.video.channelDetails);
   console.log('channel', channelDetails)
   const { snippet, statistics } = channelDetails;
+  
   if (!channelDetails) return;
 
   const channelLogoImg = snippet?.thumbnails?.default?.url;
