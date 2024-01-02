@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../../utils/storeSlices/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./videoComments/CommentsContainer";
-import LiveChat from "./LiveChat";
+import LiveChat from "./liveChat/LiveChat";
 import VideoDetails from "./VideoDetails";
 import RecommendedVideos from "./recommended/RecommendedVideos";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
-  
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
