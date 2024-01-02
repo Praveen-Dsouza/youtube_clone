@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../../utils/storeSlices/appSlice";
 import { useSearchParams } from "react-router-dom";
-import CommentsContainer from "./CommentsContainer";
+import CommentsContainer from "./videoComments/CommentsContainer";
 import LiveChat from "./LiveChat";
 import VideoDetails from "./VideoDetails";
 import RecommendedVideos from "./recommended/RecommendedVideos";
@@ -10,6 +10,7 @@ import RecommendedVideos from "./recommended/RecommendedVideos";
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
@@ -28,14 +29,14 @@ const WatchPage = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
-          <VideoDetails videoId={videoId}/>
+          <VideoDetails videoId={videoId} />
+          <CommentsContainer videoId={videoId} />
         </div>
         <div className="w-4/12">
           <LiveChat />
-          <RecommendedVideos/>
+          <RecommendedVideos />
         </div>
       </div>
-      <CommentsContainer />
     </div>
   );
 };

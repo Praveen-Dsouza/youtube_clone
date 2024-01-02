@@ -15,3 +15,5 @@ export const CHANNEL_DATA_API = "https://youtube.googleapis.com/youtube/v3/chann
 export const VIDEO_DETAILS_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=" + API_KEY + "&id=";
 
 export const RECOMMENDED_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/activities?part=snippet%2CcontentDetails&maxResults=50&key=" + API_KEY + "&channelId=";
+
+export const VIDEO_COMMENTS_API = "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=100&&key=" + API_KEY + "&videoId=";
