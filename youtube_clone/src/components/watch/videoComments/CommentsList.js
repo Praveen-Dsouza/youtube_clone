@@ -1,3 +1,5 @@
+import user from "../../../utils/icons/navbar/user.png"
+
 const Comment = ({ data }) => {
     const { name, text } = data;
   
@@ -5,8 +7,8 @@ const Comment = ({ data }) => {
       <div className="flex shadow-sm bg-gray-100 p-2 rounded-lg my-2">
         <img
           className="w-12 h-12"
-          src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-          alt=""
+          src={user}
+          alt="user"
         />
         <div className="px-3">
           <p className="font-bold">{name}</p>
