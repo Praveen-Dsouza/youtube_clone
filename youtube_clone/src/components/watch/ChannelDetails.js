@@ -1,6 +1,6 @@
 import React from "react";
 import { ViewsConverter } from "../../utils/helper";
-import verified from "../../utils/icons/verified.png";
+import verified from "../../utils/icons/watch/verified.png";
 import { useSelector } from "react-redux";
 
 const ChannelDetails = ({ channelTitle }) => {

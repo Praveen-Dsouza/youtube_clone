@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import ChannelDetails from "./ChannelDetails";
 import useVideoDetails from "../../hooks/useVideoDetails";
 import useChannelDetails from "../../hooks/useChannelDetails";
-import likedInv from "../../utils/icons/likedInv.png";
-import dislikedInv from "../../utils/icons/dislikedInv.png";
-import share from "../../utils/icons/share.png";
-import more from "../../utils/icons/more.png";
+import likedInv from "../../utils/icons/sidebar/likedInv.png";
+import dislikedInv from "../../utils/icons/watch/dislikedInv.png";
+import share from "../../utils/icons/watch/share.png";
+import more from "../../utils/icons/watch/more.png";
 import { ViewsConverter } from "../../utils/helper";
 import VideoTimeStamp from "../searchResults/VideoTimeStamp"
 

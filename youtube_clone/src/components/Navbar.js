@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleUser
-} from "@fortawesome/free-solid-svg-icons";
 import { toggleMenu } from "../utils/storeSlices/appSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { YT_LOGO, YT_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/storeSlices/searchSlice";
 import { useNavigate, Link } from "react-router-dom";
-import bell from "../utils/icons/bell.png";
-import createVideo from "../utils/icons/createVideo.png";
-import clear from "../utils/icons/clear.png";
-import search from "../utils/icons/search.png";
-import mic from "../utils/icons/mic.jpg";
-import bars from "../utils/icons/bars.jpg";
+import user from "../utils/icons/navbar/user.png";
+import bell from "../utils/icons/navbar/bell.png";
+import createVideo from "../utils/icons/navbar/createVideo.png";
+import clear from "../utils/icons/navbar/clear.png";
+import search from "../utils/icons/navbar/search.png";
+import mic from "../utils/icons/navbar/mic.jpg";
+import bars from "../utils/icons/navbar/bars.jpg";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -148,7 +145,7 @@ const Navbar = () => {
         )}
       </div>
       <div className="flex col-span-1 my-1 dir-rtl">
-        <FontAwesomeIcon className="h-8 ml-5" icon={faCircleUser} />
+        <img className="h-8 ml-5" src={user} alt="user" />
         <img className="h-7 ml-5" src={bell} alt="bell" />
         <img className="h-6 my-1" src={createVideo} alt="video" />
       </div>
