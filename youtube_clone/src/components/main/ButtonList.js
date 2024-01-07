@@ -1,12 +1,13 @@
 import React from 'react'
 import Button from './Button'
+import { Link } from "react-router-dom";
+import { BUTTON_NAMES } from '../../utils/constants';
 
 const ButtonList = () => {
-  const btnNames = ['All', 'Gaming', 'Songs', 'Live', 'Cricket', 'Soccer', 'News', 'Cooking', 'New to you']
 
   return (
     <div className='flex mt-14'>
-      {btnNames.map((item) => <Button key={item} name={item}/>)}
+      {BUTTON_NAMES.map((item) => <Link key={item} to={"/results?search_query=" + item}><Button key={item} name={item}/></Link>)}
     </div>
   )
 }
