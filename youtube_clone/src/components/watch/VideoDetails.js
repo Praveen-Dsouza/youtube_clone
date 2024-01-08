@@ -31,7 +31,7 @@ const VideoDetails = ({ videoId }) => {
         <ChannelDetails channelTitle={channelTitle} />
 
         <div className="flex items-center px-2">
-          <div className="flex items-center bg-slate-100 px-4 py-1 mx-1 rounded-3xl w-48 ">
+          <div className="flex items-center bg-slate-100 px-4 py-1 mx-1 rounded-3xl w-40 ">
             
             <img className="h-6 w-18 bg-gray-200 " src={likedInv} alt="like"/>
             <div className="text-sm mx-2 font-semibold mt-1">
