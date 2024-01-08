@@ -20,14 +20,14 @@ const ChannelDetails = ({ channelTitle }) => {
         alt="logo"
       />
       <div className=" flex flex-col">
-        <p className="font-bold text-[15px] mb-1 line-clamp-2">{channelTitle}</p>
+        <div className="flex">
+          <p className="font-bold text-[15px] mb-1 line-clamp-2">{channelTitle}</p>
+          <img className="h-4 w-4 m-1" src={verified} alt="verified" />
+        </div>
         <div className="flex text-xs">
           <ViewsConverter views={subscriberCount} />
           <p className="pl-1"> subscribers</p>
         </div>
-      </div>
-      <div className="px-2 py-1">
-        <img className="h-4 w-4 " src={verified} alt="verified" />
       </div>
       <button className="px-5 py-2 ml-4 rounded-3xl text-sm bg-black text-white font-semibold">
         Subscribe

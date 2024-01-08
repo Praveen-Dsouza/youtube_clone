@@ -31,21 +31,21 @@ const VideoDetails = ({ videoId }) => {
         <ChannelDetails channelTitle={channelTitle} />
 
         <div className="flex items-center px-2">
-          <div className="flex items-center bg-slate-100 px-4 py-1 mx-2 rounded-3xl w-48 ">
+          <div className="flex items-center bg-slate-100 px-4 py-1 mx-1 rounded-3xl w-48 ">
             
             <img className="h-6 w-18 bg-gray-200 " src={likedInv} alt="like"/>
             <div className="text-sm mx-2 font-semibold mt-1">
               <ViewsConverter views={likeCount} />
             </div>
-            <div className="text-xl text-gray-300 mx-2">|</div>
+            <div className="text-xl text-gray-300 mx-1">|</div>
             <img className="h-6 w-18 bg-gray-100" src={dislikedInv} alt="dislike"/>
           </div>
-          <div className="bg-slate-100 rounded-3xl px-4 py-3 mx-2 flex ">
-            <img className="h-5 w-18 bg-gray-100 px-1" src={share} alt="share"/>
+          <div className="bg-slate-100 rounded-3xl px-4 py-2 mx-2 flex ">
+            <img className="h-4 w-18 bg-gray-100 px-1 my-1" src={share} alt="share"/>
             <span className="text-sm font-semibold pr-2">Share</span>
           </div>
-          <div className="bg-slate-100 rounded-full p-2 py-5">
-            <img className="w-8 rounded-full px-1" src={more} alt="more"/>
+          <div className="bg-slate-100 rounded-full p-2 py-4">
+            <img className="w-7 rounded-full px-1" src={more} alt="more"/>
           </div>
         </div>
       </div>

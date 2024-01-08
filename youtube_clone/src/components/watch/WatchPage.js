@@ -18,8 +18,8 @@ const WatchPage = () => {
   return (
     <div className="flex flex-col min-w-[15px] items-center max-w-[calc(1280px + 402px + 72px)] mx-[calc(7%)]">
       <div className="px-5 flex">
-        <div className="w-8/12">
-          <div className="w-[640px] h-[360px]">
+        <div className="w-8/12 mr-4">
+          <div className="w-full h-[360px]">
             <iframe
               className="rounded-xl aspect-video w-full h-full"
               src={`https://www.youtube.com/embed/${videoId}`}
