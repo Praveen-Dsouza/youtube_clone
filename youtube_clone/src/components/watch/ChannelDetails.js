@@ -2,6 +2,7 @@ import React from "react";
 import { ViewsConverter } from "../../utils/helper";
 import verified from "../../utils/icons/watch/verified.png";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const ChannelDetails = ({ channelTitle }) => {
   const channelDetails = useSelector((store) => store.video.channelDetails);
@@ -14,11 +15,13 @@ const ChannelDetails = ({ channelTitle }) => {
 
   return (
     <div className="flex mt-1 w-full">
-      <img
-        className="w-10 h-10 mr-2 rounded-full"
-        src={channelLogoImg}
-        alt="logo"
-      />
+      <Link to={`/results?search_query=${channelTitle}`}>
+        <img
+          className="w-10 h-10 mr-2 rounded-full"
+          src={channelLogoImg}
+          alt="logo"
+        />
+      </Link>
       <div className=" flex flex-col">
         <div className="flex">
           <p className="font-bold text-[15px] mb-1 line-clamp-2">{channelTitle}</p>
