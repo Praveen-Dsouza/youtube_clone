@@ -7,7 +7,7 @@ import send from "../../../utils/icons/watch/send.png"
 
 const LiveChat = () => {
   const [liveMessage, setLiveMessage] = useState("");
-  const [showChat, setShowChat] = useState(false);
+  const [showChat, setShowChat] = useState(true);
   const dispatch = useDispatch();
   const chatMessages = useSelector((store) => store.chat.messages);
 
@@ -26,7 +26,7 @@ const LiveChat = () => {
   }, []);
 
   return (
-    <>
+    <div className="mb-8">
         {showChat && 
           <div>
             <div className="w-full h-[600px] ml-2 p-2 border border-gray-300 bg-white rounded-t-lg border-b-0 overflow-y-scroll flex flex-col-reverse">
@@ -55,13 +55,13 @@ const LiveChat = () => {
         }
         <div className={`${showChat && 'border border-gray-300'} ml-2 w-full p-2`}>
           <button
-            className={`${!showChat && 'border border-gray-300'} w-full text-semibold rounded-full hover:bg-gray-200 px-1 py-1`}
+            className={`${!showChat && 'border border-gray-300'} w-full text-sm font-semibold rounded-full hover:bg-gray-200 px-1 py-1`}
             onClick={() => setShowChat(!showChat)}
           >
             {showChat ? "Hide Chat" : "Show Chat"}
           </button>
         </div>
-    </>
+    </div>
   );
 };
 

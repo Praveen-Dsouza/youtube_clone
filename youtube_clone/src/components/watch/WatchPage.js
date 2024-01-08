@@ -16,13 +16,13 @@ const WatchPage = () => {
     dispatch(closeMenu());
   });
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col min-w-[15px] items-center max-w-[calc(1280px + 402px + 72px)] mx-[calc(7%)]">
       <div className="px-5 flex">
         <div className="w-8/12">
           <iframe
-            className="rounded-lg aspect-video w-full"
-            width="800"
-            height="600"
+            className="rounded-xl aspect-video"
+            width="640"
+            height="360"
             src={`https://www.youtube.com/embed/${videoId}`}
             title="YouTube video player"
             frameBorder="0"
