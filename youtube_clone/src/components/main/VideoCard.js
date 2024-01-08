@@ -4,9 +4,8 @@ import { ViewsConverter } from '../../utils/helper';
 import VideoTimeStamp from '../searchResults/VideoTimeStamp';
 
 const VideoCard = ({ info }) => {
-  console.log(info)
-    const { snippet, statistics } = info;
-    const { channelTitle, title, thumbnails, publishedAt } = snippet;
+  const { snippet, statistics } = info;
+  const { channelTitle, title, thumbnails, publishedAt } = snippet;
 
   return (
     <div className="min-w-[300px] max-w-[500px] mx-2 bg-white overflow-hidden">

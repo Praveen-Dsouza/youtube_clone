@@ -18,7 +18,7 @@ export const RECOMMENDED_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3
 
 export const VIDEO_COMMENTS_API = "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=100&&key=" + API_KEY + "&videoId=";
 
-export const BUTTON_NAMES = ['All', 'Gaming', 'Songs', 'Live', 'Cricket', 'Soccer', 'News', 'Cooking', 'New to you']
+export const BUTTON_NAMES = ['All', 'Stock markets', 'Gaming', 'Music', 'Live', 'Computer Programming', 'Debates','Asian music', 'Cricket', 'Soccer', 'News', 'Cooking', 'Mixes', 'New to you']
 
 export const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 

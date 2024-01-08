@@ -13,7 +13,7 @@ const VideoContainer = () => {
   if (!videos?.length) return <Shimmer />;
 
   return (
-    <div className="mx-[calc(2%)]">
+    <div className="">
         <div className="grid grid-cols-3 gap-y-5 flex-wrap">
           {videos?.map((video) => (
             <Link key={video.id} to={`/watch?v=${video.id}`}>
