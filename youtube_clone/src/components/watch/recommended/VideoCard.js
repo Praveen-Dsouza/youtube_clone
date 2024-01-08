@@ -26,7 +26,7 @@ const VideoCard = ({ recommendationVideo }) => {
         alt=""
       />
       <div className="flex text-sm flex-col pl-2">
-        <div className="font-bold line-clamp-2 mb-2">{title}</div>
+        <div className="font-semibold line-clamp-2 mb-2">{title}</div>
         <div className='flex'>
           <p className="text-gray-600 text-xs font-base mr-2">{channelTitle}</p>
           <img className="h-3 w-3 my-1" src={verified} alt="verified" />
