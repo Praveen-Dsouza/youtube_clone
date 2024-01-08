@@ -15,7 +15,7 @@ const SearchResults = lazy(() =>
 
 const Layout = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <Body />
     </div>

@@ -1,32 +1,29 @@
 import React from 'react'
+import verified from "../../utils/icons/watch/verified.png"
+import { ViewsConverter } from '../../utils/helper';
+import VideoTimeStamp from '../searchResults/VideoTimeStamp';
 
 const VideoCard = ({ info }) => {
-  // console.log(info)
+  console.log(info)
     const { snippet, statistics } = info;
-    const { channelTitle, title, thumbnails } = snippet;
+    const { channelTitle, title, thumbnails, publishedAt } = snippet;
 
   return (
-    <div className="w-48 mx-4 bg-white rounded-md overflow-hidden shadow-md">
+    <div className="min-w-[300px] max-w-[500px] mx-2 bg-white overflow-hidden">
     <div className="">
-      <img src={thumbnails?.medium?.url} alt={title} className="w-full h-48 object-cover" />
-      {/* <div className="absolute inset-0 flex items-center justify-center">
-        <svg
-          className="w-12 h-12 text-white opacity-75 hover:opacity-100"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M4 5V19L12 12L20 19V5L12 12L4 5Z"
-          />
-        </svg>
-      </div> */}
+      <img src={thumbnails?.medium?.url} alt={title} className="w-full rounded-xl object-cover" />
     </div>
-    <div className="p-4">
-      <h2 className="text-sm font-semibold mb-2">{title}</h2>
-      <p className="text-sm font-semibold mb-2">{channelTitle}</p>
-      <p className="text-gray-600 text-sm">{statistics.viewCount} views</p>
+    <div className="px-4 py-2">
+      <h2 className="text-base font-semibold mb-2 line-clamp-2">{title}</h2>
+      <div className='flex'>
+        <p className="text-gray-600 text-sm font-base mr-2">{channelTitle}</p>
+        <img className="h-4 w-4 my-1" src={verified} alt="verified" />
+      </div>
+      <div className='text-gray-600 text-sm flex'>
+        <p className='flex'><ViewsConverter views={statistics.viewCount}/> &nbsp;views</p>&nbsp;
+        <p className='mx-1 leading-0'>•</p>
+        <p><VideoTimeStamp utcTimeStamp={publishedAt}/></p>
+      </div>
     </div>
   </div>
   )
