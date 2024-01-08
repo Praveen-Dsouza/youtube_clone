@@ -37,8 +37,8 @@ const CommentsContainer = ({ videoId }) => {
 
   return (
     <div className="m-4">
-      <h1 className="text-xl font-bold mb-2">{comments.length} Comments:</h1>
-        {!comments.length && <CommentsList comments={commentsData} />}
+      <h1 className="text-xl font-bold mb-2">{comments?.length} Comments:</h1>
+        {!comments?.length && <CommentsList comments={commentsData} />}
         {comments?.map((comment, index) => (
           <div key={index}>
             <Comment data={comment} />

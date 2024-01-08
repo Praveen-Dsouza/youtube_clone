@@ -8,7 +8,7 @@ const useVideosList = () => {
   const videos = useSelector((store) => store.video.videos);
 
   useEffect(() => {
-    if (!videos.length) getVideos();
+    if (!videos?.length) getVideos();
   }, []);
 
   const getVideos = async () => {

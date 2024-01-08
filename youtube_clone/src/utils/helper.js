@@ -6,7 +6,7 @@ export function generateRandomNames() {
 
 export function makeRandomMessage(length) {
   let result = "";
-  const charactersLength = CHARACTERS.length;
+  const charactersLength = CHARACTERS?.length;
   let counter = 0;
   while (counter < length) {
     result += CHARACTERS.charAt(Math.floor(Math.random() * charactersLength));
