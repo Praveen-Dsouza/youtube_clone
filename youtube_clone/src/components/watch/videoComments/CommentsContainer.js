@@ -36,8 +36,8 @@ const CommentsContainer = ({ videoId }) => {
     console.log('comments', comments);
 
   return (
-    <div className="m-5 p-2">
-      <h1 className="text-2xl font-bold">Comments:</h1>
+    <div className="m-4">
+      <h1 className="text-xl font-bold mb-2">{comments.length} Comments:</h1>
         {!comments.length && <CommentsList comments={commentsData} />}
         {comments?.map((comment, index) => (
           <div key={index}>

@@ -25,16 +25,16 @@ const VideoDetails = ({ videoId }) => {
   return (
     <div className="flex flex-col w-full">
       <div className="flex">
-        <div className="font-bold text-xl py-2 m-2">{title}</div>
+        <div className="font-bold text-xl py-2 my-2">{title}</div>
       </div>
       <div className="flex justify-between">
         <ChannelDetails channelTitle={channelTitle} />
 
         <div className="flex items-center px-2">
-          <div className="flex items-center bg-slate-100 px-4 py-2 mx-2 rounded-3xl w-48 ">
+          <div className="flex items-center bg-slate-100 px-4 py-1 mx-2 rounded-3xl w-48 ">
             
             <img className="h-6 w-18 bg-gray-200 " src={likedInv} alt="like"/>
-            <div className="text-[14px] mx-2 font-bold mt-1">
+            <div className="text-sm mx-2 font-semibold mt-1">
               <ViewsConverter views={likeCount} />
             </div>
             <div className="text-xl text-gray-300 mx-2">|</div>
@@ -50,14 +50,14 @@ const VideoDetails = ({ videoId }) => {
         </div>
       </div>
       <div className="bg-slate-100 m-3 rounded-xl">
-        <div className="flex m-1 mt-3 text-base w-full">
-          <div className="flex font-semibold px-2">
+        <div className="flex m-1 mb-0 mt-3 text-base w-full">
+          <div className="flex font-bold px-2">
             <ViewsConverter views={viewCount} />
-            <p className="px-1">views</p>
+            <p className="px-1">views</p>&nbsp;
             <VideoTimeStamp utcTimestamp={publishedAt} />
           </div>
         </div>
-        <div className="m-1 mb-3">
+        <div className="m-1 mt-0 mb-3">
           <div className="text-sm line-clamp-2 px-2">{description}</div>
         </div>
       </div>
