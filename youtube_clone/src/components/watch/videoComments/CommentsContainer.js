@@ -33,7 +33,6 @@ import useVideoComments from "../../../hooks/useVideoComments";
 const CommentsContainer = ({ videoId }) => {
     useVideoComments(videoId)
     const comments = useSelector((store) => store.video?.comments);
-    console.log('comments', comments);
 
   return (
     <div className="m-4">

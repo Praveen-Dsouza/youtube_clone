@@ -15,11 +15,9 @@ const ButtonList = () => {
     if (current) {
       if (topic === "prev") {
         current.scrollLeft -= value;
-        console.log('prev', current.scrollLeft)
         setHideBtns(current.scrollLeft);
       } else {
         current.scrollLeft += value;
-        console.log('next', current.scrollLeft)
         setHideBtns(current.scrollLeft);
       }
     }

@@ -7,8 +7,6 @@ const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const [searchVideos, setSearchVideos] = useState([]);
 
-  console.log(searchVideos)
-
   let searchQuery = searchParams.get("search_query");
 
   useEffect(() => {

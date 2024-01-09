@@ -128,7 +128,6 @@ const Navbar = () => {
                 <li
                   key={suggestion}
                   onMouseDown={(e) => {
-                    console.log("e", e);
                     handleSuggestion(e);
                     setSearchQuery("");
                   }}
