@@ -20,7 +20,7 @@ const Shimmer = () => {
     <div className="flex flex-wrap justify-center w-full">
       {Array(12)
         .fill()
-        .map((index) => {
+        .map((val, index) => {
           return <VideoCard key={index} />;
         })}
     </div>

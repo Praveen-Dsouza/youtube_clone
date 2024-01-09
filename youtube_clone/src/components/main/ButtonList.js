@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { BUTTON_NAMES } from "../../utils/constants";
@@ -8,24 +8,28 @@ import backArrow from "../../utils/icons/common/backArrow.png";
 const ButtonList = () => {
   const btnContainerRef = useRef(null);
   const { current } = btnContainerRef;
+  const [hideBtns, setHideBtns] = useState(0);
 
   const scrollBtns = (topic) => {
     const value = 120;
     if (current) {
       if (topic === "prev") {
         current.scrollLeft -= value;
+        console.log('prev', current.scrollLeft)
+        setHideBtns(current.scrollLeft);
       } else {
         current.scrollLeft += value;
+        console.log('next', current.scrollLeft)
+        setHideBtns(current.scrollLeft);
       }
     }
   };
 
   return (
     <div className="flex bg-white fixed w-[calc(95%)] overflow-hidden">
-      <button className={`absolute py-5 bg-gradient-to-r from-white`}>
-        <div className="hover:bg-gray-100 bg-white p-1 rounded-full">
+      <button onClick={() => scrollBtns("prev")} className={`absolute py-5 bg-gradient-to-r from-white ${hideBtns === 0 && 'hidden'}`}>
+        <div className="hover:bg-gray-200 bg-white p-1 rounded-full">
           <img
-            onClick={() => scrollBtns("prev")}
             className="h-4 w-4 cursor-pointer"
             src={backArrow}
             alt=""
@@ -39,10 +43,9 @@ const ButtonList = () => {
           </Link>
         ))}
       </div>
-      <button className="absolute right-0 py-5 bg-gradient-to-l from-white">
-        <div className="hover:bg-gray-100 bg-white p-1 rounded-full">
+      <button onClick={() => scrollBtns("next")} className={`absolute right-0 py-5 bg-gradient-to-l from-white ${hideBtns >= 230 && 'hidden'}`}>
+        <div className="hover:bg-gray-200 bg-white p-1 rounded-full">
           <img
-            onClick={() => scrollBtns("next")}
             className="h-4 w-4 cursor-pointer"
             src={forwardArrow}
             alt=""
