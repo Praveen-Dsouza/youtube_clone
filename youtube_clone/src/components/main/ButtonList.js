@@ -21,7 +21,7 @@ const ButtonList = () => {
   };
 
   return (
-    <div className="flex bg-white fixed w-[calc(97%)] overflow-hidden">
+    <div className="flex bg-white fixed w-[calc(95%)] overflow-hidden">
       <button className={`absolute py-5 bg-gradient-to-r from-white`}>
         <div className="hover:bg-gray-100 bg-white p-1 rounded-full">
           <img
@@ -32,14 +32,14 @@ const ButtonList = () => {
           />
         </div>
       </button>
-      <div ref={btnContainerRef} className="flex overflow-x-hidden overflow-hidden">
+      <div ref={btnContainerRef} className="flex overflow-x-hidden mx-2">
         {BUTTON_NAMES.map((item) => (
           <Link key={item} to={"/results?search_query=" + item}>
             <Button key={item} name={item} />
           </Link>
         ))}
       </div>
-      <button className="absolute right-3 py-5 bg-gradient-to-l from-white">
+      <button className="absolute right-0 py-5 bg-gradient-to-l from-white">
         <div className="hover:bg-gray-100 bg-white p-1 rounded-full">
           <img
             onClick={() => scrollBtns("next")}
