@@ -40,7 +40,7 @@ const ButtonList = () => {
         ))}
       </div>
       <button className="absolute right-3 py-5 bg-gradient-to-l from-white">
-        <div className="hover:bg-gray-100 bg-white p-1 rounded-full bg-white">
+        <div className="hover:bg-gray-100 bg-white p-1 rounded-full">
           <img
             onClick={() => scrollBtns("next")}
             className="h-4 w-4 cursor-pointer"
