@@ -24,7 +24,7 @@ const ChannelDetails = ({ channelTitle }) => {
       </Link>
       <div className=" flex flex-col">
         <div className="flex">
-          <p className="font-bold text-[15px] mb-1 line-clamp-2">{channelTitle}</p>
+          <p className="font-bold text-[15px] mb-1 line-clamp-1">{channelTitle}</p>
           <img className="h-4 w-4 m-1" src={verified} alt="verified" />
         </div>
         <div className="flex text-xs">

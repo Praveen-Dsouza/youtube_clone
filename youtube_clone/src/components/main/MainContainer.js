@@ -1,11 +1,10 @@
 import React from "react";
-import ButtonList from "./ButtonList";
 import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   return (
-    <div className="mx-[calc(2%)]">
-      <ButtonList />
+    <div className="mx-[calc(2%)] mt-20">
+      {/* <ButtonList /> */}
       <VideoContainer />
     </div>
   );
