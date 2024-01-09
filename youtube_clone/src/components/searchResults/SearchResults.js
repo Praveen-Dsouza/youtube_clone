@@ -7,6 +7,8 @@ const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const [searchVideos, setSearchVideos] = useState([]);
 
+  console.log(searchVideos)
+
   let searchQuery = searchParams.get("search_query");
 
   useEffect(() => {
@@ -20,10 +22,9 @@ const SearchResults = () => {
   };
 
   return (
-    <div className="justify-center">
-      <div className="py-2 ">
+    <div className="mx-[calc(8%)]">
+      <div className="py-1 ">
         {searchVideos?.map((video) =>
-          // Only show videos (no channels)
           video?.id.videoId ? (
             <Link
               key={video?.id?.videoId || video?.id?.playlistId}
