@@ -11,7 +11,7 @@ const MainContainer = () => {
       {location.pathname === '/' && <div className="">
         <ButtonList/>
       </div>}    
-      <div className="pt-20">
+      <div className="pt-[7%]">
         <VideoContainer />
         </div>  
     </div>

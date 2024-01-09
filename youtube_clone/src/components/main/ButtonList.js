@@ -26,7 +26,7 @@ const ButtonList = () => {
   };
 
   return (
-    <div className="flex bg-white fixed w-[calc(95%)] overflow-hidden">
+    <div className="flex bg-white fixed w-[calc(96%)] overflow-hidden">
       <button onClick={() => scrollBtns("prev")} className={`absolute py-5 bg-gradient-to-r from-white ${hideBtns === 0 && 'hidden'}`}>
         <div className="hover:bg-gray-200 bg-white p-1 rounded-full">
           <img
