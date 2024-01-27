@@ -48,7 +48,6 @@ import settingsInv from "../utils/icons/sidebar/settingsInv.jpg";
 import settings from "../utils/icons/sidebar/settings.jpg";
 
 const ListItem = ({ icon, text, customClass, path, selectedPath }) => {
-  console.log('item', selectedPath, path)
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
