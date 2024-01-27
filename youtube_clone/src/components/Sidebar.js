@@ -48,6 +48,7 @@ import settingsInv from "../utils/icons/sidebar/settingsInv.jpg";
 import settings from "../utils/icons/sidebar/settings.jpg";
 
 const ListItem = ({ icon, text, customClass, path, selectedPath }) => {
+  console.log('item', selectedPath, path)
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
@@ -63,7 +64,7 @@ const ListItem = ({ icon, text, customClass, path, selectedPath }) => {
         <img className={`h-5 w-5 ${customClass}`} src={icon} alt="icon" />
         <p
           className={`pl-7 text-sm mb-1 ${
-            (selectedPath === path) || (selectedPath === null && path === '/') ? "font-bold" : "font-normal"
+            (selectedPath === path) || (path === undefined && selectedPath === null) ? "font-bold" : "font-normal"
           }`}
         >
           {text}
@@ -78,7 +79,6 @@ const Sidebar = () => {
   const [searchParams] = useSearchParams();
   let searchQuery = searchParams.get("search_query");
   const [activeParams, setActiveParams] = useState("home");
-  console.log("query", searchQuery, activeParams);
 
   useEffect(() => {
       setActiveParams(searchQuery)
@@ -132,7 +132,7 @@ const Sidebar = () => {
   return (
     <div className="px-8 py-10 fixed max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain top-6 z-10 bg-white ">
       <ul className="shadow-sm">
-        <ListItem icon={searchQuery === "/"? setIcon(searchQuery) : homeInv} text={"Home"} path={'/'} selectedPath={activeParams} />
+        <ListItem icon={searchQuery === null? setIcon(searchQuery) : homeInv} text={"Home"} selectedPath={searchQuery} />
         <ListItem icon={searchQuery === "shorts" ? setIcon(searchQuery): shortsInv} text={"Shorts"} path={"shorts"} selectedPath={activeParams}  />
         <ListItem
           icon={searchQuery === "subscriptions"? setIcon(searchQuery) : subscriptionInv}
