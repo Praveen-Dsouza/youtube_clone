@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { closeMenu } from "../utils/storeSlices/appSlice";
+import home from "../utils/icons/sidebar/home.jpg";
 import homeInv from "../utils/icons/sidebar/homeInv.png";
 import shortsInv from "../utils/icons/sidebar/shortsInv.png";
 import subscriptionInv from "../utils/icons/sidebar/subscriptionInv.png";
@@ -28,20 +29,24 @@ import ytmusic from "../utils/icons/sidebar/ytmusic.png";
 import kids from "../utils/icons/sidebar/kids.png";
 import settingsInv from "../utils/icons/sidebar/settingsInv.jpg";
 
-const ListItem = ({ icon, text, customClass, path }) => {
+const ListItem = ({ icon, text, customClass, path, selectedPath }) => {
   const dispatch = useDispatch();
+
+  const toggleMenu = () => {
+    dispatch(closeMenu());
+  };
 
   return (
     <Link
       to={path ? `/results?search_query=${path}` : "/"}
-      onClick={() => dispatch(closeMenu())}
+      onClick={() => toggleMenu}
     >
       <li className="flex py-1 my-2 cursor-pointer hover:bg-gray-100 rounded-lg">
         <img className={`h-5 w-5 ${customClass}`} src={icon} alt="icon" />
         <p
-          className={
-            "pl-7 text-sm mb-1 font-normal" + (text === "Home" && "font-bold")
-          }
+          className={`pl-7 text-sm mb-1 ${
+            (selectedPath === path) || (selectedPath === null && path === '/') ? "font-bold" : "font-normal"
+          }`}
         >
           {text}
         </p>
@@ -52,16 +57,26 @@ const ListItem = ({ icon, text, customClass, path }) => {
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store?.app?.isMenuOpen);
+  const [searchParams] = useSearchParams();
+  let searchQuery = searchParams.get("search_query");
+  const [activeParams, setActiveParams] = useState("home");
+  console.log("query", searchQuery, activeParams);
+
+  useEffect(() => {
+    setActiveParams(searchQuery)
+  }, [searchQuery]);
+
   if (!isMenuOpen) return null;
   return (
     <div className="px-8 py-10 fixed max-h-screen hover:overflow-y-scroll overflow-hidden overscroll-contain top-6 z-10 bg-white ">
       <ul className="shadow-sm">
-        <ListItem icon={homeInv} text={"Home"} />
-        <ListItem icon={shortsInv} text={"Shorts"} path={"shorts"} />
+        <ListItem icon={home} text={"Home"} path={'/'} selectedPath={activeParams} />
+        <ListItem icon={shortsInv} text={"Shorts"} path={"shorts"} selectedPath={activeParams}  />
         <ListItem
           icon={subscriptionInv}
           text={"Subscriptions"}
           path={"subscriptions"}
+          selectedPath={activeParams} 
         />
       </ul>
       <div></div>
@@ -71,48 +86,49 @@ const Sidebar = () => {
           icon={channelInv}
           text={"Your channel"}
           path={"yourchannel"}
+          selectedPath={activeParams} 
         />
-        <ListItem
-          icon={history}
-          text={"History"}
-          path={"www.youtube.com/feed/you"}
-        />
-        <ListItem icon={videosInv} text={"Your videos"} path={"yourvideos"} />
+        <ListItem icon={history} text={"History"} path={"history"} selectedPath={activeParams}  />
+        <ListItem icon={videosInv} text={"Your videos"} path={"yourvideos"} selectedPath={activeParams}  />
         <ListItem
           icon={watchlaterInv}
           text={"Watch later"}
           path={"watchlater"}
+          selectedPath={activeParams} 
         />
-        <ListItem icon={likedInv} text={"Liked Videos"} path={"likedvideos"} />
-        <ListItem icon={downArrow} text={"Show more"} path={"showmore"} />
+        <ListItem icon={likedInv} text={"Liked Videos"} path={"likedvideos"} selectedPath={activeParams}  />
+        <ListItem icon={downArrow} text={"Show more"} path={"showmore"} selectedPath={activeParams} />
       </ul>
       <h1 className=" pt-5 text-lg font-semibold">Explore</h1>
       <ul className="shadow-sm">
-        <ListItem icon={trendingInv} text={"Trending"} path={"trending"} />
-        <ListItem icon={shoppingInv} text={"Shopping"} path={"shopping"} />
-        <ListItem icon={musicInv} text={"Music"} path={"music"} />
-        <ListItem icon={moviesInv} text={"Movies"} path={"movies"} />
+        <ListItem icon={trendingInv} text={"Trending"} path={"trending"} selectedPath={activeParams}  />
+        <ListItem icon={shoppingInv} text={"Shopping"} path={"shopping"} selectedPath={activeParams} />
+        <ListItem icon={musicInv} text={"Music"} path={"music"} selectedPath={activeParams}  />
+        <ListItem icon={moviesInv} text={"Movies"} path={"movies"} selectedPath={activeParams}  />
         <ListItem
           customClass={`h-5 w-6`}
           icon={liveInv}
           text={"Live"}
           path={"live"}
+          selectedPath={activeParams} 
         />
-        <ListItem icon={gamingInv} text={"Gaming"} path={"gaming"} />
-        <ListItem icon={newspaperInv} text={"News"} path={"news"} />
-        <ListItem icon={sportsInv} text={"Sports"} path={"sports"} />
-        <ListItem icon={learningInv} text={"Learning"} path={"learning"} />
+        <ListItem icon={gamingInv} text={"Gaming"} path={"gaming"} selectedPath={activeParams}  />
+        <ListItem icon={newspaperInv} text={"News"} path={"news"} selectedPath={activeParams}  />
+        <ListItem icon={sportsInv} text={"Sports"} path={"sports"} selectedPath={activeParams}  />
+        <ListItem icon={learningInv} text={"Learning"} path={"learning"} selectedPath={activeParams} />
         <ListItem
           customClass={`h-6 w-6`}
           icon={fashionInv}
           text={"Fashion & Beauty"}
           path={"fashion"}
+          selectedPath={activeParams} 
         />
         <ListItem
           customClass={`h-6 w-6`}
           icon={podcastInv}
           text={"Podcasts"}
           path={"podcasts"}
+          selectedPath={activeParams} 
         />
       </ul>
       <h1 className=" pt-5 text-lg font-semibold">More from YouTube </h1>
@@ -121,15 +137,17 @@ const Sidebar = () => {
           icon={ytpremium}
           text={"YouTube Premium"}
           path={"youtubepremium"}
+          selectedPath={activeParams} 
         />
         <ListItem
           icon={studio}
           text={"YouTube Studio"}
           path={"youtubestudio"}
+          selectedPath={activeParams} 
         />
-        <ListItem icon={ytmusic} text={"YouTube Music"} path={"youtubemusic"} />
-        <ListItem icon={kids} text={"YouTube Kids"} path={"youtubekids"} />
-        <ListItem icon={settingsInv} text={"Settings"} path={"settings"} />
+        <ListItem icon={ytmusic} text={"YouTube Music"} path={"youtubemusic"} selectedPath={activeParams}  />
+        <ListItem icon={kids} text={"YouTube Kids"} path={"youtubekids"} selectedPath={activeParams}  />
+        <ListItem icon={settingsInv} text={"Settings"} path={"settings"} selectedPath={activeParams} />
       </ul>
     </div>
   );
