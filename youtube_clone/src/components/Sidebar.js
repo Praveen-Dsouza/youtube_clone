@@ -13,6 +13,7 @@ import channel from "../utils/icons/sidebar/channel.png";
 import historyInv from "../utils/icons/sidebar/historyInv.png";
 import history from "../utils/icons/sidebar/history.png";
 import videosInv from "../utils/icons/sidebar/videosInv.png";
+import videos from "../utils/icons/sidebar/videos.png";
 import likedInv from "../utils/icons/sidebar/likedInv.png";
 import liked from "../utils/icons/sidebar/liked.png";
 import watchlaterInv from "../utils/icons/sidebar/watchlaterInv.png";
@@ -95,10 +96,12 @@ const Sidebar = () => {
         return channel
       case "history":
         return historyInv
-      case "likedvideos":
-        return liked
+      case "yourvideos":
+        return videos
       case "watchlater":
         return watchlater
+      case "likedvideos":
+        return liked
       case "trending":
         return trending
       case "shopping":
