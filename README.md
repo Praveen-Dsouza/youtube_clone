@@ -1,11 +1,12 @@
 # YouTube Clone
+YouTube Clone - Elevating Your Online Video Experience 🎥
 
 Welcome to React YouTube Clone project! 🚀 In this project, I have leveraged the power of ReactJS, Redux, and Tailwind CSS to create a high-performance web application that replicates the popular YouTube platform. Our focus goes beyond the basics – we've implemented advanced concepts like debouncing and caching to ensure a seamless and responsive user experience.
 
-## Live Demo
-- See the live demo of MovieMinds: https://react-yt-clone.web.app/
+## Live Demo 🌐
+- See the live demo of Youtube Clone: https://react-yt-clone.web.app/
 
-## Key Features
+## Key Features 🚀
 🎬 YouTube-Like Experience: Explore a familiar interface with features like video playback, comments, and a sleek video recommendation system.
 
 🚀 ReactJS & Redux Mastery: Dive into the world of ReactJS and Redux, witnessing a scalable and efficient application architecture.
@@ -48,7 +49,7 @@ Welcome to React YouTube Clone project! 🚀 In this project, I have leveraged t
 
 - new Map() more optimised than Object
 
-## Tech Stack
+## Tech Stack 💻
 
 - ReactJS ⚛: A popular JavaScript library for building user interfaces.
 
