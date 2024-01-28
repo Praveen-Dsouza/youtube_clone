@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <div className="w-screen fixed grid grid-flow-col z-20 px-7 py-2 h-14 bg-white">
       <div className="flex col-span-1">
-        <img className="h-7 mt-1 cursor-pointer" src={bars} onClick={() => toggleMenuHandler()} alt="clear" />
+        <img className="h-7 mt-1 cursor-pointer hover:bg-gray-300 hover:p-1 hover:rounded-full" src={bars} onClick={() => toggleMenuHandler()} alt="clear" />
         <Link to="/">
           <img className="h-5 my-2 ml-6" src={YT_LOGO} alt="logo" />
         </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
           >
             {suggestions.length > 0 && (
               <button
-                className={`border rounded-l-full border-gray-300 border-r-0 pl-5 bg-white `}
+                className={`border rounded-l-full border-gray-300 border-r-0 pl-5 bg-white`}
               >
                 <img className="h-4 my-2" src={search} alt="search" />
               </button>

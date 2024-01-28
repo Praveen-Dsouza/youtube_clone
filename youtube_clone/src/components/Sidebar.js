@@ -58,7 +58,7 @@ const ListItem = ({ icon, text, customClass, path, selectedPath }) => {
   return (
     <Link
       to={path ? `/results?search_query=${path}` : "/"}
-      onClick={() => toggleMenu}
+      onClick={toggleMenu}
     >
       <li className="flex py-1 my-2 cursor-pointer hover:bg-gray-100 rounded-lg">
         <img className={`h-5 w-5 ${customClass}`} src={icon} alt="icon" />
