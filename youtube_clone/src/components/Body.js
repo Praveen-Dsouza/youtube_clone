@@ -11,8 +11,10 @@ const Body = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <div className={`mt-14 ${isMenuOpen && 'opacity-1 bg-gray-200'}`}>
-        <Outlet/>
+      <div className={`mt-14 ${isMenuOpen && ' bg-gray-200 absolute inset-0 pointer-events-none'}`}>
+        <div className={`${isMenuOpen && 'hidden'}`}>
+          <Outlet/>
+        </div>
       </div>
     </div>
   );
